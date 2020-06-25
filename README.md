@@ -2,11 +2,16 @@
 
 The purpose of this project is to build an optimal machine learning model that could identify credit card fraud transactions through comparison of different statistical methods and their hyper-parameters tuning. 
 
+This project works with an imbalanced dataset on credit card transactions. With the nature of an imbalanced dataset, default accuracy would not achieve assessment goal of model performance, thus additional metrics need to be used. I used Recall, Precision, False Positives, False Negatives, and Roc Auc Scores as evaluation metrics. 
+
+The goal is to optimize machine learning models through hyperparameter tunings to maximize model recall, precision, and roc auc scores and minimize false positives and false negatives.
+
 # Data Introduction
 
 The dataset could be accessed [here](https://www.kaggle.com/mlg-ulb/creditcardfraud). This dataset contains credit card transactions from a European bank in September 2013. There are 492 fraud transactions out of 284,807 transactions. Due to confidentiality protection, the feature variables only show from V1 to V28, transaction time, amount of transaction, and class which states 0 (normal) and 1 (fraud). V1 - V28 are components of PCA transformation on original features. 
 
 After checking data types and null values, I found out that all features are float variables, and there is no null values. By looking into the value counts for each class and checking with data description, we can see that the dataset is extremely imbalanced. The majority of class is 0, which are normal transactions, while only a small portion of the dataset are fraud transactions. Due to the extreme imbalance, a correlation analysis among variables would not be as effective as expected.
+
 ![image](./img/EDA_class_count.png)
 
 # Rebalance data with SMOTE
